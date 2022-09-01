@@ -1,0 +1,89 @@
+.taskBox {
+    background: var(--gray-500);
+    border: calc(1rem / 16) solid var(--gray-400);
+    border-radius: calc(8rem / 16);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+    gap: calc(12rem / 16);
+    margin-top: calc(12rem / 16);
+}
+
+.boxCompleted {
+    border: calc(1rem / 16) solid var(--gray-500);
+}
+
+.taskBox span {
+    font-size: calc(14rem / 16);
+    color: var(--gray-100);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.taskBox time {
+    font-size: calc(12rem / 16);
+    color: var(--gray-300);
+}
+
+.taskBox time::before {
+    content: "Criado \0020";
+}
+
+.taskBox button {
+    background: transparent;
+    border: 0;
+    color: var(--gray-300);
+    cursor: pointer;
+    line-height: 0;
+    border-radius: calc(2rem / 16);
+}
+
+.taskBox button:hover {
+    color: var(--warn);
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    background-color: transparent;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: calc(2rem / 16) solid var(--blue);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    border: calc(2rem / 16) solid var(--purple-dark);
+    background-color: var(--purple-dark);
+    text-decoration: line-through;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    top: calc(3rem / 16);
+    left: calc(2rem / 16);
+    position: absolute;
+    width: calc(6rem / 16);
+    height: calc(3rem / 16);
+    transform: rotate(-45deg);
+    border-bottom: calc(2rem / 16) solid var(--white);
+    border-left: calc(2rem / 16) solid var(--white);
+}
+
+input[type="checkbox"]:checked ~ span p {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
+input[type="checkbox"]:checked ~ span time {
+    color: var(--purple-dark);
+}
+
+input[type="checkbox"]:checked ~ span time::before {
+    content: "Concluído \0020";
+}

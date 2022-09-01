@@ -1,0 +1,6 @@
+.container {
+  max-width: calc(1120rem/16);
+  margin: calc(32rem/16) auto;
+  padding: 0 1rem;
+  margin-top: calc(24rem / 16 * -1);
+}
