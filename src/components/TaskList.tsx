@@ -34,7 +34,7 @@ export function TaskList() {
 
         let newList = [...tasks];
         newList.unshift(newTask);
-        sortTasks(newList);
+        setTasks(newList);
         setNewTaskText('');
     }
 
@@ -58,13 +58,8 @@ export function TaskList() {
         const task = newList.splice(fromIndex, 1)[0];
         task.isComplete = !task.isComplete;
         task.publishedAt = new Date();
-        newList.splice(0, 0, task);
-        sortTasks(newList);
-    }
-
-    function sortTasks(newTasks: TaskProps[]) {
-        newTasks.sort((a, b) => a.isComplete < b.isComplete ? -1 : 0);
-        setTasks(newTasks);
+        task.isComplete ? newList.push(task) : newList.unshift(task);
+        setTasks(newList);
     }
 
     return (
